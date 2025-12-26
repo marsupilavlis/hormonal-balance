@@ -8,9 +8,13 @@
   --sage: #cfe1d9;
   --mist: #f4efe6;
   --card: #fdfbf7;
+  --glass: rgba(255, 255, 255, 0.18);
+  --glass-strong: rgba(255, 255, 255, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-border-soft: rgba(255, 255, 255, 0.25);
   --line: rgba(19, 32, 29, 0.12);
-  --shadow: 0 24px 60px rgba(15, 24, 22, 0.18);
-  --shadow-soft: 0 18px 40px rgba(15, 24, 22, 0.14);
+  --shadow: 0 26px 60px rgba(10, 30, 30, 0.22);
+  --shadow-soft: 0 18px 40px rgba(10, 30, 30, 0.16);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -30,10 +34,10 @@ body {
   font-family: "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Segoe UI", "Noto Sans",
     sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at 10% 20%, #f9f4eb 0%, transparent 48%),
-    radial-gradient(circle at 90% 10%, #e7f0ed 0%, transparent 46%),
-    radial-gradient(circle at 85% 85%, #f8efe0 0%, transparent 46%),
-    var(--mist);
+  background: radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.8), transparent 45%),
+    radial-gradient(circle at 88% 14%, rgba(12, 106, 106, 0.18), transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(213, 106, 65, 0.22), transparent 55%),
+    linear-gradient(135deg, #f6f1ea 0%, #e3f2f0 52%, #f8e2cf 100%);
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -95,9 +99,11 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 20px 8vw;
-  backdrop-filter: blur(14px);
-  background: rgba(244, 239, 230, 0.7);
-  border-bottom: 1px solid rgba(19, 32, 29, 0.08);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--glass-border-soft);
+  box-shadow: 0 12px 30px rgba(10, 30, 30, 0.12);
 }
 
 .logo {
@@ -222,9 +228,11 @@ main {
 }
 
 .btn.ghost {
-  border-color: var(--sea);
+  border-color: rgba(255, 255, 255, 0.65);
   color: var(--sea-dark);
-  background: rgba(12, 106, 106, 0.08);
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .trust {
@@ -236,9 +244,11 @@ main {
 .trust-item {
   padding: 16px 18px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 24px rgba(15, 24, 22, 0.08);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -250,13 +260,15 @@ main {
 }
 
 .hero-panel {
-  background: var(--card);
+  background: var(--glass-strong);
   border-radius: 30px;
   padding: 30px;
-  border: 1px solid rgba(19, 32, 29, 0.1);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow);
   display: grid;
   gap: 22px;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
 }
 
 .panel-header p {
@@ -314,11 +326,13 @@ main {
 }
 
 .card {
-  background: var(--card);
+  background: var(--glass);
   border-radius: 24px;
   padding: 24px;
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 24px rgba(15, 24, 22, 0.08);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .card p {
@@ -357,10 +371,13 @@ main {
 }
 
 .audience-card {
-  background: rgba(12, 106, 106, 0.08);
+  background: linear-gradient(135deg, rgba(12, 106, 106, 0.2), rgba(255, 255, 255, 0.12));
   border-radius: 24px;
   padding: 24px;
-  border: 1px solid rgba(12, 106, 106, 0.15);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .audience-card ul {
@@ -396,11 +413,13 @@ main {
 }
 
 .cta-card {
-  background: var(--card);
+  background: var(--glass);
   border-radius: 24px;
   padding: 26px;
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 24px rgba(15, 24, 22, 0.08);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   display: grid;
   gap: 18px;
   align-content: start;
@@ -431,6 +450,32 @@ main {
     border-color 0.35s var(--ease-out);
 }
 
+.card,
+.trust-item,
+.hero-panel,
+.audience-card,
+.partner-card,
+.cta-card,
+.signup-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before,
+.trust-item::before,
+.hero-panel::before,
+.audience-card::before,
+.partner-card::before,
+.cta-card::before,
+.signup-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 55%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .card:hover,
 .trust-item:hover,
 .hero-panel:hover,
@@ -444,10 +489,13 @@ main {
 }
 
 .signup-panel {
-  background: rgba(213, 106, 65, 0.1);
+  background: linear-gradient(135deg, rgba(213, 106, 65, 0.22), rgba(255, 255, 255, 0.12));
   border-radius: 24px;
   padding: 24px;
-  border: 1px solid rgba(213, 106, 65, 0.2);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .signup-panel ul {
@@ -470,18 +518,24 @@ main {
 }
 
 .partner-card {
-  background: var(--card);
+  background: var(--glass);
   padding: 22px;
   border-radius: 20px;
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 24px rgba(15, 24, 22, 0.08);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .partner-cta {
   margin-top: 24px;
   padding: 18px 22px;
   border-radius: 18px;
-  background: rgba(12, 106, 106, 0.1);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   display: flex;
   align-items: center;
   justify-content: space-between;
